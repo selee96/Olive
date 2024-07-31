@@ -1,6 +1,7 @@
 package com.example.olive.dto;
 
 import com.example.olive.domain.Product;
+import com.example.olive.type.ProductCategory;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -13,12 +14,20 @@ import java.time.LocalDateTime;
 public class ProductDto {
     private Long productId;
     private String productName;
+    private ProductCategory productCategory;
     private Long price;
+    private Long quantity;
 
     private LocalDateTime registeredAt;
+    private LocalDateTime unRegisteredAt;
 
     public static ProductDto fromEntity(Product product) {
         return ProductDto.builder()
+                .productId(product.getId())
+                .productName(product.getProductName())
+                .productCategory(product.getProductCategory())
+                .price(product.getPrice())
+                .quantity(product.getQuantity())
                 .build();
     }
 }

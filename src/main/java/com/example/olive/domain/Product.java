@@ -28,11 +28,13 @@ public class Product {
     private Long quantity;
 
     private LocalDateTime registeredAt;
-    private LocalDateTime UnRegisteredAt;
+    private LocalDateTime unRegisteredAt;
 
     @CreatedDate
     private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
+
 
 }
