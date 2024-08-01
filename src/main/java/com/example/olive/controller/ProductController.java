@@ -2,6 +2,7 @@ package com.example.olive.controller;
 
 import com.example.olive.dto.RegisterProduct;
 import com.example.olive.service.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,13 +14,12 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping("/product/create")
+    @PostMapping("/register/product")
     public RegisterProduct.Response createProduct(
-            @RequestBody RegisterProduct.Request request
+            @RequestBody @Valid RegisterProduct.Request request
     ) {
         return RegisterProduct.Response.fromEntity(
                 productService.registerProduct(
-                        request.getProductId(),
                         request.getProductName(),
                         request.getProductCategory(),
                         request.getPrice(),

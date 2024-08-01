@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+import static com.example.olive.type.ProductState.NORMAL;
+
 @Service
 @RequiredArgsConstructor
 public class ProductService {
@@ -18,7 +20,6 @@ public class ProductService {
 
     @Transactional
     public ProductDto registerProduct(
-            Long productId,
             String productName,
             ProductCategory productCategory,
             Long price,
@@ -27,9 +28,12 @@ public class ProductService {
         return ProductDto.fromEntity(
                 productRepository.save(Product.builder()
                         .productName(productName)
-                        .registeredAt(LocalDateTime.now())
-                        .productCategory(ProductCategory.MASK_PACK)
-                        .price(30000L)
+                        .productCategory(productCategory)
+                        .price(price)
+                        .quantity(quantity)
+                        .productState(NORMAL)
+                        .createdAt(LocalDateTime.now())
+                        .updatedAt(LocalDateTime.now())
                         .build())
         );
 

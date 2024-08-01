@@ -12,10 +12,6 @@ public class RegisterProduct {
     @AllArgsConstructor
     public static class Request {
         @NotNull
-        @Min(1)
-        private Long productId;
-
-        @NotNull
         private String productName;
 
         @NotNull
