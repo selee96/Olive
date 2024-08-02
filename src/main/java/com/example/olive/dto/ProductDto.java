@@ -2,6 +2,7 @@ package com.example.olive.dto;
 
 import com.example.olive.domain.Product;
 import com.example.olive.type.ProductCategory;
+import com.example.olive.type.StoreType;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @Builder
 public class ProductDto {
     private Long productId;
+    private StoreType storeType;
     private String productName;
     private ProductCategory productCategory;
     private Long price;
@@ -24,6 +26,7 @@ public class ProductDto {
     public static ProductDto fromEntity(Product product) {
         return ProductDto.builder()
                 .productId(product.getId())
+                .storeType(product.getStoreType())
                 .productName(product.getProductName())
                 .productCategory(product.getProductCategory())
                 .price(product.getPrice())

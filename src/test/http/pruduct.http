@@ -3,8 +3,10 @@ POST http://localhost:8080/register/product
 Content-Type: application/json
 
 {
+  "storeType": "BBIA",
   "productName": "퍼펙트 컨실러 쿠션",
   "productCategory": "MAKEUP",
   "price": 36000,
-  "quantity": 100
+  "quantity": 100,
+  "product_state": "NORMAL"
 }

@@ -25,6 +25,7 @@ public class ProductService {
             Long price,
             Long quantity
     ) {
+        
         return ProductDto.fromEntity(
                 productRepository.save(Product.builder()
                         .productName(productName)
