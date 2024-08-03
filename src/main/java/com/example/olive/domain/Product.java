@@ -34,6 +34,9 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private ProductState productState;
 
+    @ManyToOne
+    private OrderProduct orderProduct;
+
     @CreatedDate
     private LocalDateTime createdAt;
     @LastModifiedDate

@@ -1,5 +1,6 @@
 package com.example.olive.domain;
 
+import com.example.olive.dto.ProductDto;
 import com.example.olive.type.PayMethodType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,6 +9,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,6 +30,7 @@ public class OrderProduct {
     @Enumerated(EnumType.STRING)
     private PayMethodType payMethodType;
     private Long totalPrice;
+    private String address;
 
     @CreatedDate
     private LocalDateTime createdAt;
