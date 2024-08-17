@@ -2,9 +2,10 @@ package com.example.olive.dto;
 
 import com.example.olive.type.ProductCategory;
 import com.example.olive.type.StoreType;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 public class RegisterProduct {
 
@@ -42,7 +43,7 @@ public class RegisterProduct {
         private ProductCategory productCategory;
         private Long price;
         private Long quantity;
-
+/*
         public static Response fromEntity(ProductDto productDto) {
             return Response.builder()
                     .productId(productDto.getProductId())
@@ -53,6 +54,7 @@ public class RegisterProduct {
                     .quantity(productDto.getQuantity())
                     .build();
         }
+        */
     }
 
 }
