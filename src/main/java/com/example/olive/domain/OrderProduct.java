@@ -25,9 +25,13 @@ public class OrderProduct {
     @ManyToOne
     private OliveUser oliveUser;
 
+    @ManyToOne
+    private Product product;
+
     @Enumerated(EnumType.STRING)
     private PayMethodType payMethodType;
-    private Long totalPrice;
+
+    private Long amountPaid;
     private String address;
 
     @CreatedDate

@@ -1,12 +1,8 @@
 package com.example.olive.dto;
 
-import com.example.olive.domain.OliveUser;
-import com.example.olive.domain.Product;
-import com.example.olive.type.ProductCategory;
-import com.example.olive.type.StoreType;
+import com.example.olive.domain.OrderProduct;
+import com.example.olive.type.PayMethodType;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -14,13 +10,19 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class OrderProductDto {
-    private Long orderProductId;
-    private OliveUser oliveUser;
-    private Long totalPrice;
+    private Long oliveUserId;
+    private Long productId;
+    private PayMethodType payMethodType;
+    private Long amountPaid;
     private String address;
 
     public static OrderProductDto fromEntity(OrderProduct orderProduct) {
         return OrderProductDto.builder()
+                .oliveUserId(orderProduct.getOliveUser().getId())
+                .productId(orderProduct.getProduct().getId())
+                .payMethodType(orderProduct.getPayMethodType())
+                .amountPaid(orderProduct.getAmountPaid())
+                .address(orderProduct.getAddress())
                 .build();
     }
 }

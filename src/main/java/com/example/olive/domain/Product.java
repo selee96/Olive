@@ -24,18 +24,15 @@ public class Product {
     @GeneratedValue
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private StoreType storeType;
     private String productName;
     @Enumerated(EnumType.STRING)
     private ProductCategory productCategory;
+    @Enumerated(EnumType.STRING)
+    private StoreType storeType;
     private Long price;
     private Long quantity;
     @Enumerated(EnumType.STRING)
     private ProductState productState;
-
-    @ManyToOne
-    private OrderProduct orderProduct;
 
     @CreatedDate
     private LocalDateTime createdAt;

@@ -6,12 +6,12 @@ import lombok.*;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 public class RegisterProduct {
 
     @Getter
     @Setter
-    @AllArgsConstructor
     public static class Request {
         @NotNull
         private String productName;
@@ -38,23 +38,12 @@ public class RegisterProduct {
     @Builder
     public static class Response {
         private Long productId;
-        private StoreType storeType;
         private String productName;
         private ProductCategory productCategory;
+        private StoreType storeType;
         private Long price;
         private Long quantity;
-/*
-        public static Response fromEntity(ProductDto productDto) {
-            return Response.builder()
-                    .productId(productDto.getProductId())
-                    .storeType(productDto.getStoreType())
-                    .productName(productDto.getProductName())
-                    .productCategory(productDto.getProductCategory())
-                    .price(productDto.getPrice())
-                    .quantity(productDto.getQuantity())
-                    .build();
-        }
-        */
+        private LocalDateTime registeredAt;
     }
 
 }
